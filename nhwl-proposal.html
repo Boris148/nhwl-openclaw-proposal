@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Operator Proposal — New Hope Weight Loss</title>
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --panel: #121215;
+      --panel-2: #17171b;
+      --text: #f5f2ea;
+      --muted: #b8b2a7;
+      --line: rgba(255, 191, 73, 0.22);
+      --gold: #ffbf49;
+      --gold-2: #d89b2b;
+      --success: #f4c96a;
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0.4in; }
+
+    body {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: 8.27in;
+      margin: 0 auto;
+      padding: 0.4in;
+      background:
+        radial-gradient(circle at top right, rgba(255, 191, 73, 0.11), transparent 26%),
+        linear-gradient(180deg, #111114 0%, #0b0b0c 100%);
+    }
+
+    /* ── HEADER ── */
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 480px;
+    }
+
+    .subhead {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 480px;
+    }
+
+    h2 {
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 { font-size: 15px; }
+
+    .price-card {
+      background: linear-gradient(180deg, rgba(255,191,73,0.16), rgba(255,191,73,0.06));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+      min-width: 195px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .price-card .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .price-card .price {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .price-card .note {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── CARDS ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-note {
+      font-size: 16px;
+      color: #f8f4eb;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .meta strong { color: var(--gold); }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* ── CAPABILITY BOX ── */
+    .capability-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,191,73,0.08), rgba(255,191,73,0.03));
+      border: 1px solid var(--line);
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
+      margin-top: 12px;
+    }
+
+    .cap-pill {
+      padding: 10px 11px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    /* ── VALUE STACK ── */
+    .value-stack, .simple-list { display: grid; gap: 10px; }
+
+    .value-item, .simple-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 13px;
+      border-radius: 14px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 191, 73, 0.12);
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 191, 73, 0.14);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .value-item strong, .simple-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .value-item span, .simple-item span,
+    .muted, .small {
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .support-card {
+      background: linear-gradient(180deg, rgba(255,191,73,0.10), rgba(255,191,73,0.03));
+      border: 1px solid var(--line);
+    }
+
+    /* ── USE CASES ── */
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .use-case {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 191, 73, 0.10);
+    }
+
+    .use-case .icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .use-case strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: var(--gold);
+    }
+
+    .use-case span {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* ── INVESTMENT ── */
+    .investment-card {
+      margin-top: 18px;
+      background: linear-gradient(180deg, rgba(255,191,73,0.12), rgba(255,191,73,0.04));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .invest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .invest-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .invest-item strong {
+      display: block;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .invest-item span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .total-row {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,191,73,0.10);
+      border: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .total-row .total-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .total-row .total-price {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    /* ── NEXT STEPS ── */
+    .next-option {
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .next-option + .next-option { margin-top: 10px; }
+
+    .gold { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body { background: #0b0b0c; }
+      .page { margin: 0; padding: 0.35in; }
+    }
+
+    @media (max-width: 700px) {
+      .brand { flex-direction: column; }
+      .grid, .two-col, .use-case-grid, .invest-grid, .cap-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- ── HEADER ── -->
+    <section class="brand">
+      <div>
+        <div class="eyebrow">Social Elite Marketing Group</div>
+        <h1>AI Operator Proposal for New Hope Weight Loss</h1>
+        <p class="subhead">A dedicated AI system built specifically for your weight loss practice — automating patient follow-up, lead management, scheduling, and day-to-day operations so your team can focus on patient care.</p>
+      </div>
+      <div class="price-card">
+        <div class="label">Complete Setup</div>
+        <div class="price">$5,000</div>
+        <div class="note">One-Time • Hardware Included</div>
+      </div>
+    </section>
+
+    <!-- ── INTRO + CAPABILITIES ── -->
+    <section class="grid">
+      <div class="card">
+        <p class="hero-note">New Hope Weight Loss deserves more than generic software — you need an AI operator that understands the weight loss and wellness space. This proposal outlines a fully installed, always-on AI system that runs 24/7 on dedicated hardware in your practice, handling the repetitive work that pulls your team away from patients.</p>
+        <div class="meta">
+          <div><strong>Prepared For:</strong> New Hope Weight Loss</div>
+          <div><strong>Prepared By:</strong> Jeremy Garcia</div>
+          <div><strong>Company:</strong> Social Elite Marketing Group</div>
+          <div><strong>Date:</strong> May 3, 2026</div>
+        </div>
+      </div>
+
+      <div class="card capability-box">
+        <div class="section-kicker">Built for Weight Loss &amp; Wellness</div>
+        <h2 style="margin-top:4px;">Core Capabilities</h2>
+        <div class="cap-grid">
+          <div class="cap-pill">Automated lead follow-up &amp; patient nurture sequences</div>
+          <div class="cap-pill">Appointment scheduling &amp; confirmation reminders</div>
+          <div class="cap-pill">Patient inquiry response — 24/7, instant</div>
+          <div class="cap-pill">Marketing content creation &amp; social media drafts</div>
+          <div class="cap-pill">Review generation &amp; reputation monitoring</div>
+          <div class="cap-pill">Insurance &amp; program eligibility pre-screening</div>
+          <div class="cap-pill">Competitor &amp; market research on demand</div>
+          <div class="cap-pill">Internal reporting &amp; performance dashboards</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── THE PROBLEM ── -->
+    <section class="card">
+      <div class="section-title">
+        <h2>The Problem We Solve</h2>
+        <div class="section-kicker">Why This Matters for Your Practice</div>
+      </div>
+      <p class="hero-note" style="margin-bottom:0;">Weight loss clinics live and die on lead follow-up speed. When a potential patient fills out a form at 9 PM or sends a message on the weekend, every hour without a response is a patient lost to a competitor. Your team shouldn't have to choose between patient care and admin work — and with an AI operator, they won't have to.</p>
+    </section>
+
+    <!-- ── USE CASES ── -->
+    <section class="card" style="margin-top:18px;">
+      <div class="section-title">
+        <h2>How It Works for Your Practice</h2>
+        <div class="section-kicker">Real-World Use Cases</div>
+      </div>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <div class="icon">⚡</div>
+          <strong>Instant Lead Response</strong>
+          <span>New inquiry comes in from your website, Meta ads, or Google — the AI responds within seconds, qualifies the lead, and books the consultation. No more lost leads sitting in a queue.</span>
+        </div>
+        <div class="use-case">
+          <div class="icon">📋</div>
+          <strong>Patient Follow-Up</strong>
+          <span>Automated check-ins after consultations. Nurture sequences for patients who haven't booked. Re-engagement campaigns for inactive patients — all personalized, never robotic.</span>
+        </div>
+        <div class="use-case">
+          <div class="icon">📅</div>
+          <strong>Scheduling Automation</strong>
+          <span>Handle appointment requests, send confirmations and reminders, reduce no-shows. Integrates with your existing scheduling system.</span>
+        </div>
+        <div class="use-case">
+          <div class="icon">📊</div>
+          <strong>Ad Performance Monitoring</strong>
+          <span>Your AI monitors your Meta ad campaigns daily — tracking cost per lead, conversion rates, and flagging anything that needs attention before budget is wasted.</span>
+        </div>
+        <div class="use-case">
+          <div class="icon">⭐</div>
+          <strong>Review &amp; Reputation</strong>
+          <span>Automatically request reviews from satisfied patients. Monitor Google and Yelp for new reviews. Alert your team to any negative feedback immediately.</span>
+        </div>
+        <div class="use-case">
+          <div class="icon">📝</div>
+          <strong>Content &amp; Social Media</strong>
+          <span>Draft social posts, blog articles, patient education content, and email newsletters — all tailored to weight loss and wellness topics relevant to your audience.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT'S INCLUDED ── -->
+    <section class="card" style="margin-top:18px;">
+      <div class="section-title">
+        <h2>What's Included</h2>
+        <div class="section-kicker">Everything in the $5,000 setup</div>
+      </div>
+      <div class="value-stack">
+        <div class="value-item"><div class="check">✓</div><div><strong>Dedicated Mac Mini hardware</strong><span>Your AI runs on its own machine — no shared servers, no cloud dependency. It's yours, in your office, always on.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Full OpenClaw AI platform installation</strong><span>Complete setup and configuration of the AI operator environment, optimized for healthcare and weight loss operations.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Premium AI brain (Claude Opus)</strong><span>Powered by the most advanced reasoning model available — not a basic chatbot. Understands context, nuance, and your business.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Secondary AI for background tasks</strong><span>A separate, cost-efficient AI model handles routine jobs like scheduling checks and monitoring — keeping costs low while the premium brain handles patient-facing work.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Weight loss &amp; wellness skill library</strong><span>Pre-built capabilities tailored to your industry — lead qualification, patient communication templates, health content generation, and more.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Memory &amp; learning system</strong><span>Your AI remembers patient interaction history, your preferences, team protocols, and business rules. It gets smarter over time.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Security &amp; system monitoring</strong><span>Built-in health checks, file integrity protection, and security alerts. Patient data stays on your hardware — not in the cloud.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Messaging integration</strong><span>Connect your AI to Telegram, SMS, or other channels so you can communicate with it from anywhere — check on leads, get reports, give instructions from your phone.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Initial automation setup</strong><span>We don't just install it and leave — we configure your first set of automated workflows: lead follow-up, appointment reminders, and daily reporting.</span></div></div>
+        <div class="value-item"><div class="check">✓</div><div><strong>Full testing &amp; verification</strong><span>Every component is tested and confirmed working before handoff. You get a working system, not a project in progress.</span></div></div>
+      </div>
+    </section>
+
+    <!-- ── NOT INCLUDED + SUPPORT ── -->
+    <section class="two-col">
+      <div class="card">
+        <div class="section-title">
+          <h2>What's Not Included</h2>
+          <div class="section-kicker">Outside the initial setup</div>
+        </div>
+        <div class="simple-list">
+          <div class="simple-item"><div class="check">—</div><div><strong>Ongoing AI subscription costs</strong><span>The AI models require monthly subscriptions (typically $20–$200/mo depending on usage). We'll set up the most cost-effective plan for your needs.</span></div></div>
+          <div class="simple-item"><div class="check">—</div><div><strong>Custom integrations beyond initial setup</strong><span>EHR/EMR connections, payment systems, or specialized third-party tools can be scoped as add-on projects.</span></div></div>
+          <div class="simple-item"><div class="check">—</div><div><strong>Advanced custom automations</strong><span>Complex multi-step workflows beyond the initial set are available as future project work.</span></div></div>
+          <div class="simple-item"><div class="check">—</div><div><strong>Ongoing development &amp; expansion</strong><span>Continuous growth of your AI's abilities beyond the base build — available on retainer or per-project.</span></div></div>
+        </div>
+      </div>
+
+      <div class="card support-card">
+        <div class="section-title">
+          <h2>Included Support</h2>
+          <div class="section-kicker">Free for 30 days</div>
+        </div>
+        <div class="simple-list">
+          <div class="simple-item"><div class="check">✓</div><div><strong>If anything breaks or stops working</strong><span>Full troubleshooting and repair covered during the support window.</span></div></div>
+          <div class="simple-item"><div class="check">✓</div><div><strong>Bug fixes &amp; configuration adjustments</strong><span>Covered for 30 days after installation.</span></div></div>
+          <div class="simple-item"><div class="check">✓</div><div><strong>Setup guidance &amp; training</strong><span>We walk your team through how to interact with and get the most out of your AI operator.</span></div></div>
+          <div class="simple-item"><div class="check">!</div><div><strong>What support does not cover</strong><span>New features, new automations, or development work beyond what was delivered.</span></div></div>
+        </div>
+        <p class="small" style="margin-top:12px;">Simple rule: if something we built stops working, we fix it. If you want to build something new, we scope it separately.</p>
+      </div>
+    </section>
+
+    <!-- ── INVESTMENT BREAKDOWN ── -->
+    <section class="investment-card">
+      <div class="section-title">
+        <h2>Investment Breakdown</h2>
+        <div class="section-kicker">One-Time Setup</div>
+      </div>
+      <div class="invest-grid">
+        <div class="invest-item">
+          <strong>Dedicated Mac Mini Hardware</strong>
+          <span>Your own always-on machine — included in the price, not a separate purchase.</span>
+        </div>
+        <div class="invest-item">
+          <strong>Full AI Platform Installation</strong>
+          <span>OpenClaw environment, AI models, memory system, security monitoring.</span>
+        </div>
+        <div class="invest-item">
+          <strong>Healthcare &amp; Weight Loss Configuration</strong>
+          <span>Industry-specific skills, compliance-aware workflows, patient communication templates.</span>
+        </div>
+        <div class="invest-item">
+          <strong>Initial Automations &amp; Training</strong>
+          <span>Lead follow-up, scheduling, reporting workflows + team training session.</span>
+        </div>
+      </div>
+      <div class="total-row">
+        <div class="total-label">Total Investment (One-Time)</div>
+        <div class="total-price">$5,000</div>
+      </div>
+      <p class="small" style="margin-top:10px;">No hidden fees. Hardware, installation, configuration, initial automations, training, and 30 days of support — all included. Ongoing AI model subscriptions are the only recurring cost (we help you set up the most cost-effective plan).</p>
+    </section>
+
+    <!-- ── WHAT'S NEXT ── -->
+    <section class="card" style="margin-top:18px;">
+      <div class="section-title">
+        <h2>After Setup — Growth Options</h2>
+        <div class="section-kicker">When you're ready to expand</div>
+      </div>
+      <div class="next-option">
+        <strong class="gold">Option A — Monthly Retainer</strong>
+        <p class="muted">Ongoing support, maintenance, and 1–2 new automations or workflow builds per month. Your AI keeps evolving with your practice. <span class="gold">Starting at $500/mo.</span></p>
+      </div>
+      <div class="next-option">
+        <strong class="gold">Option B — Per-Project Basis</strong>
+        <p class="muted">Need a specific integration or workflow? We scope it individually and quote it. No commitment — just results. <span class="gold">Priced per project.</span></p>
+      </div>
+      <p class="small" style="margin-top:12px;">The base installation gives you a powerful foundation. The next layer is deciding which parts of your practice you want the AI to own first — and we'll help you prioritize based on what moves the needle fastest.</p>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div>Social Elite Marketing Group • AI Operator Proposal for New Hope Weight Loss</div>
+      <div>Contact: <span class="gold">jeremy@semgllc.com</span></div>
+    </footer>
+
+  </main>
+</body>
+</html>
